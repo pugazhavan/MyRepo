@@ -134,7 +134,8 @@ function start_match() {
 	gatheringTeamDetails();
 
 	max_ovrs = prompt("Please enter the maximum overs: ","8");
-	console.log(max_ovrs);
+	if(max_ovrs == null)
+		max_ovrs = 8;
 	
 	document.getElementById("third_page").innerHTML += "<div id='home_players_Det' style='display:none;'><b>Choose a Player</b><br>"+home_players_detailView+"</div>";
 	document.getElementById("third_page").innerHTML += "<div id='away_players_Det' style='display:none;'><b>Choose a Player</b><br>"+away_players_detailView+"</div>";
