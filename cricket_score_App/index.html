@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+
+		<style>
+		#current {
+			font-weight: bold;
+		}
+		</style>
+
+		<script src="JQuery/jquery-1.11.0.js"></script>
+		<script src="js_files/index.js"></script>
+	</head>
+	<body>
+
+		<!-- Inital Page -->
+		<div id="first_page">
+			<button onclick="start_match()">New Match</button><br>
+			<button onclick="edit_players()">Manage Teams</button><br>
+			<button onclick="update_settings">Settings</button><br>
+			<button onclick="app_details()">About this app</button>
+		</div>
+
+		<!-- Second Page is for Managing Teams -->
+		<div id="second_page">
+			<div id="choose_Team">
+				<button onclick="home()">Home Team</button><br>
+				<button onclick="away()">Away Team</button><br>
+				<button onclick="back()">Back</button>
+			</div>
+			<div id='home_team_details' style="display:none;">
+				Team Name: <b><span id="home_Name"></span></b><br>
+				<label>Player1 Name </label><input type='text' id='hp1' onclick="this.value='';"><br>
+				<label>Player2 Name </label><input type='text' id='hp2' onclick="this.value='';"><br>
+				<label>Player3 Name </label><input type='text' id='hp3' onclick="this.value='';"><br>
+				<label>Player4 Name </label><input type='text' id='hp4' onclick="this.value='';"><br>
+				<label>Player5 Name </label><input type='text' id='hp5' onclick="this.value='';"><br>
+				<label>Player6 Name </label><input type='text' id='hp6' onclick="this.value='';"><br>
+				<label>Player7 Name </label><input type='text' id='hp7' onclick="this.value='';"><br>
+				<label>Player8 Name </label><input type='text' id='hp8' onclick="this.value='';"><br>
+				<label>Player9 Name </label><input type='text' id='hp9' onclick="this.value='';"><br>
+				<label>Player10 Name </label><input type='text' id='hp10' onclick="this.value='';"><br>
+				<label>Player11 Name </label><input type='text' id='hp11' onclick="this.value='';"><br>
+				<button onclick="save('home_team_details')">Save</button>
+			</div>
+			<div id='away_team_details' style="display:none;">
+				Team Name: <b><span id="away_Name"></span></b><br>
+				<label>Player1 Name </label><input type='text' id='ap1' onclick="this.value='';"><br>
+				<label>Player2 Name </label><input type='text' id='ap2' onclick="this.value='';"><br>
+				<label>Player3 Name </label><input type='text' id='ap3' onclick="this.value='';"><br>
+				<label>Player4 Name </label><input type='text' id='ap4' onclick="this.value='';"><br>
+				<label>Player5 Name </label><input type='text' id='ap5' onclick="this.value='';"><br>
+				<label>Player6 Name </label><input type='text' id='ap6' onclick="this.value='';"><br>
+				<label>Player7 Name </label><input type='text' id='ap7' onclick="this.value='';"><br>
+				<label>Player8 Name </label><input type='text' id='ap8' onclick="this.value='';"><br>
+				<label>Player9 Name </label><input type='text' id='ap9' onclick="this.value='';"><br>
+				<label>Player10 Name </label><input type='text' id='ap10' onclick="this.value='';"><br>
+				<label>Player11 Name </label><input type='text' id='ap11' onclick="this.value='';"><br>
+				<button onclick="save('away_team_details')">Save</button>
+			</div>
+		</div>
+
+		<!-- Third Page is for Starting New Match -->
+		<div id="third_page">
+			<div id="scoreboard">
+				<table>
+					<tr>
+						<th><span id="whoBats"></span>'s Batting Innings</th>
+						<th>(<span id="max_Overs"></span> overs maximum)</th>
+						<th>Runs</th>
+						<th>Balls</th>
+						<th>4s</th>
+						<th>6s</th>
+						<th>SR</th>
+					</tr>
+					<tr id='bottom'>
+						<td><b>Total</b></td>
+						<td id='tot'> 0/0 </td>
+						<td id='overs'>0.0</td>
+						<td>Overs</td>
+						<td id='totscore'></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				<div id="eachBallRuns"></div>
+				<table>
+					<tr>
+						<th><span id="whoBowls"></span>'s Bowling</th>
+						<th>O</th>
+						<th>M</th>
+						<th>R</th>
+						<th>W</th>
+						<th>Econ</th>
+					</tr>
+				</table>
+			</div>
+			<div id="eachBallUpdate">
+				<button onclick="calculate(this)" value="0">0</button>
+				<button onclick="calculate(this)" value="1">1</button>
+				<button onclick="calculate(this)" value="2">2</button>
+				<button onclick="calculate(this)" value="3">3</button>
+				<button onclick="calculate(this)" value="4">4</button>
+				<button onclick="calculate(this)" value="6">6</button>
+				<button onclick="calculate(this)" value="W">W</button>
+				<button onclick="calculate(this)" value="Wide">Wide</button>
+				<button onclick="calculate(this)" value="No-ball">No-ball</button>
+			</div>
+		</div>
+		
+		<!-- Fifth Page for Developer Details -->
+		<div id="fifth_page">
+			This application is developed by, <B> Pugazhavan Suriya </B> - Cool Master :D
+			<br><button onclick="back()">Back</button>
+		</div>
+
+		<!-- Hidden Page contains the Team details -->
+		<div id="hiddenText" style="display:none;">
+			<input type='hidden' id='hpTName' value='Home Team'>
+			<input type='hidden' id='hp1Name' value='H.Player 1'>
+			<input type='hidden' id='hp2Name' value='H.Player 2'>
+			<input type='hidden' id='hp3Name' value='H.Player 3'>
+			<input type='hidden' id='hp4Name' value='H.Player 4'>
+			<input type='hidden' id='hp5Name' value='H.Player 5'>
+			<input type='hidden' id='hp6Name' value='H.Player 6'>
+			<input type='hidden' id='hp7Name' value='H.Player 7'>
+			<input type='hidden' id='hp8Name' value='H.Player 8'>
+			<input type='hidden' id='hp9Name' value='H.Player 9'>
+			<input type='hidden' id='hp10Name' value='H.Player 10'>
+			<input type='hidden' id='hp11Name' value='H.Player 11'>
+			<input type='hidden' id='apTName' value='Away Team'>
+			<input type='hidden' id='ap1Name' value='A.Player 1'>
+			<input type='hidden' id='ap2Name' value='A.Player 2'>
+			<input type='hidden' id='ap3Name' value='A.Player 3'>
+			<input type='hidden' id='ap4Name' value='A.Player 4'>
+			<input type='hidden' id='ap5Name' value='A.Player 5'>
+			<input type='hidden' id='ap6Name' value='A.Player 6'>
+			<input type='hidden' id='ap7Name' value='A.Player 7'>
+			<input type='hidden' id='ap8Name' value='A.Player 8'>
+			<input type='hidden' id='ap9Name' value='A.Player 9'>
+			<input type='hidden' id='ap10Name' value='A.Player 10'>
+			<input type='hidden' id='ap11Name' value='A.Player 11'>
+		</div>
+	</body>
+</html>
