@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Recording App</title>
+		<script src="JQuery/jquery-1.11.0.min.js"></script>
+		<script src="js_files/RecordingApp.js"></script>
+	</head>
+	<body>
+		<div id="loginPage" >
+			<label for="user">User Name</label>
+			<input type="text" name="user" id="user"><br>
+			<label for="pword">Password</label>
+			<input type="password" name="pword" id="pword"><br>
+			<button id="validateLogin">Login</button>
+		</div>
+		<div id="validLogin" style="display:none;">
+			<button id="rec">Record</button>
+			<button id="up">Upload</button>
+			<button id="stat">Status</button>
+
+			<div id="recordingPage" style="display:none;">
+				<div id="progress" style="display:none;"> Recording... </div>
+				<img src="images/Microphone-icon.png" id="mic" class="active" style="width: 75px;height: 75px;position: relative;margin-left: 50px;margin-top: 70px;"/>
+				<img src="images/pause-icon.png" id="pause" class="active" style="width: 75px;height: 75px;position: relative;margin-left: 50px;margin-top: 70px;display: none;"/>
+				<img src="images/play-icon.png" id="play" style="width: 75px;height: 75px;position: relative;margin-left: 50px;margin-top: 70px; display: none;"/>
+				<div>
+					<button id="done" style="display:none;">Done</button>
+				</div>
+				<div id="saving" style="display:none;">
+					<button id="cancel">Cancel</button>
+					<button id="save">Save</button>
+				</div>
+				
+				<div id="temp"></div>
+			</div>
+
+			<div id="UploadingPage" style="display:none;"></div>
+			<div id="StatusPage" style="display:none;"></div>
+		</div>
+	</body>
+</html>
